@@ -1,0 +1,127 @@
+/* ================================
+   Global Reset & Variables
+=================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #0044cc;
+  --light-bg: #f9f9f9;
+  --text-color: #333;
+  --spacing: 16px;
+  --border-radius: 8px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: #fff;
+}
+
+/* ================================
+   Header (Flexbox)
+=================================== */
+.header {
+  display: flex;
+  justify-content: space-between; /* Space between logo and nav */
+  align-items: center;
+  background-color: var(--primary-color);
+  color: white;
+  padding: var(--spacing);
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing);
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   Hero Section
+=================================== */
+.hero {
+  text-align: center;
+  padding: 40px var(--spacing);
+  background-color: var(--light-bg);
+}
+
+/* ================================
+   Main Content (CSS Grid)
+=================================== */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns on large screens */
+  gap: var(--spacing);
+  max-width: 1200px;
+  margin: var(--spacing) auto;
+  padding: var(--spacing);
+}
+
+.card {
+  background-color: var(--light-bg);
+  border-radius: var(--border-radius);
+  padding: var(--spacing);
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================
+   Footer
+=================================== */
+.footer {
+  text-align: center;
+  padding: var(--spacing);
+  background-color: #f1f1f1;
+  margin-top: var(--spacing);
+}
+
+/* ================================
+   Responsive Breakpoints
+=================================== */
+/* Tablets: 2 columns */
+@media (max-width: 900px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav ul {
+    gap: 10px;
+  }
+}
+
+/* Mobile: 1 column and stacked nav */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    margin-top: var(--spacing);
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
